@@ -139,10 +139,24 @@ templates, which will display a web page to the user with the returned informati
 
 pythex.org is a good tool for learning and testing regexp
 
-# URL patterns
+## URL patterns
 this is an array of calls to url(), which takes three args:
 a reg exps to match, 
 a view to call if the regex matches
 a name.
 
 when a request comes in, urls.py goes down the list looking for a match. Once it finds one, it stops looking. If it doesn't find one, it goes to a 404 page.
+
+see urls and views files for completed logic
+
+## TEMPLATES
+After a view does it's thing, it passes some data along to a template. Template directories have to be defined in settings, and called in the render function in the views.
+
+Django templates are just html files, but with extra syntax to use the data passed to them:
+
+{{ variable }} {{ variable|filter }}
+{% tag %}
+
+url tag takes an argument that is the name of the url pattern, and outputs a link to that. for example, {% url 'index' %} {% url 'item_detail' item.id %}
+
+this is useful in case we change the url patterns in the future

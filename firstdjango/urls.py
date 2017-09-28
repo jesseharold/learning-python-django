@@ -20,8 +20,8 @@ from inventory import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^item/(?P<id>\d+)/', views.item_detail),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^item/(?P<id>\d+)/', views.item_detail, name='item_detail'),
+    url(r'^admin/', include(admin.site.urls), name='admin'),
 ]
 
 # ^$ means start of word, end of word, so this means the request is just /

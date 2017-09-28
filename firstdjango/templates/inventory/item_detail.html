@@ -1,1 +1,7 @@
-<p>Item Detail Page</p>
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>{{ item.title|capfirst }}</h3>
+    <h4>Qty in stock: {{ item.amount }}</h4>
+    <p>{{ item.description }}</p>
+{% endblock content %}
