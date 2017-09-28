@@ -104,6 +104,45 @@ customize the display of items in the admin interface by adding a class to admin
 
 ## WORKING WITH DATA
 
-````python manage.py shell```
+````python manage.py shell````
 
 opens up a python interface
+
+````from inventory.models import Item````
+
+remember, inventory.models is a module, item is a class inside it. query the db like this:
+
+````items = Item.objects.all()````
+
+returns an array with all the different types of items in it. sorted by id, by default, id's start at 1.
+
+query for one item:
+
+````oneItem = Item.objects.get(id=1)````
+
+you get an error if you get zero or more than one result for a .get()
+
+to get a SET of results, use filter and 
+
+````someItems = Item.objects.filter(amount=0)````
+
+this returns a QuerySet
+
+## APP DESIGN
+urls.py will use reg exps to decide where to send any incoming request url
+|
+V
+views.py will do some logic, based on the request, query the db, update a record, etc, and then send some information to
+|
+V
+templates, which will display a web page to the user with the returned information
+
+pythex.org is a good tool for learning and testing regexp
+
+# URL patterns
+this is an array of calls to url(), which takes three args:
+a reg exps to match, 
+a view to call if the regex matches
+a name.
+
+when a request comes in, urls.py goes down the list looking for a match. Once it finds one, it stops looking. If it doesn't find one, it goes to a 404 page.

@@ -16,6 +16,16 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from inventory import views
+
 urlpatterns = [
+    url(r'^$', views.index, name='index'),
+    url(r'^item/(?P<id>\d+)/', views.item_detail),
     url(r'^admin/', include(admin.site.urls)),
 ]
+
+# ^$ means start of word, end of word, so this means the request is just /
+
+# the (?P) syntax above is a named group, and it means that the \d+ numbers will be named id. so for example, if the url is /item/45, the item_detail view will receieve the value 45 as a parameter called id
+
+# anything that begins with admin/
