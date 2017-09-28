@@ -40,6 +40,8 @@ DO edit:
 * settings.py configures django
 * urls.py routes requests based on url
 
+This is going to use SQLite as a DB, which is built in and good for development, not for production. 
+
 ### To add an app to this project
 
 go to dir where manage.py is and startapp firstapp
@@ -48,4 +50,19 @@ now add this app to the settings file of the PROJECT (firstdjango)
 
 ## SETTINGS
 
+lots more info here:
+
 https://docs.djangoproject.com/en/1.11/topics/settings/
+
+## Creating Models
+
+in addition to the ones we used, 
+there's also DecimalField, EmailFiend, URLField, FileField, ImageField, BooleanField, DateTimeField
+
+field attributes get passed in as args:
+* null=true means it's okay for there to be no data
+* blank=true means it's okay for there to be an empty string as value for a text type field
+* default sets a default value
+* choices limits the values to an array
+
+see django docs for more info https://docs.djangoproject.com/en/1.11/topics/db/models/
