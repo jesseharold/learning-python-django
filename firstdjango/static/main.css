@@ -1,0 +1,49 @@
+body {
+    background-color: #e4f8b9;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 40px;
+}
+
+h1, 
+h2, 
+h3 {
+    color: darkblue;
+    text-transform: uppercase;
+}
+
+p {
+    background-color: #fff;
+    padding: 15px 5px;
+    margin-left: 20px;
+}
+
+a, 
+a:visited {
+    color: #444;
+}
+
+.nav,
+.nav:visited {
+    background-color: lightseagreen;
+    border-radius: 4px;
+    color: #fff;
+    margin: 0 10px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.nav:hover {
+    color: yellowgreen;
+}
+
+.main {
+    border:3px solid darkolivegreen;
+    margin: 20px 0;
+    padding: 10px 25px;
+}
+
+footer {
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}

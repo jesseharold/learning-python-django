@@ -160,3 +160,11 @@ Django templates are just html files, but with extra syntax to use the data pass
 url tag takes an argument that is the name of the url pattern, and outputs a link to that. for example, {% url 'index' %} {% url 'item_detail' item.id %}
 
 this is useful in case we change the url patterns in the future
+
+## STATIC FILES
+
+css, js, and images. 
+
+configure Django so it knows where static files are in settings.
+
+to get a link to static files in yr templates, you have to load staticfiles, which is built in to Django. see base.html for deets.

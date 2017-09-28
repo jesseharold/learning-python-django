@@ -1,23 +1,26 @@
+{% load staticfiles %}
+
 <!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />
         <title>My first Django app!</title>
         <meta name="description" content="First Django Inventory App" />
-        <style>
-            body {
-                background-color: #e4f8b9;
-            }
-        </style>
+        <link rel="stylesheet" href="{% static 'main.css' %}" />
     </head>
     <body>
-        <h2>Harry's Django Inventory App!</h2>
-        <a href="{% url 'index' %}">Home</a> ::
-        <a href="/admin/">Admin</a>
-        <hr>
+        <header>
+            <h2>Harry's Django Inventory App!</h2>
+            <a class="nav" href="{% url 'index' %}">Home</a>
+            <a class="nav" href="/admin/">Admin</a>
+        </header>
+        <div class="main">
         {% block content %}
         {% endblock content %}
-        <hr>
-        &copy; 2017 haroldthesquare
+        </div>
+        <footer>
+            &copy; 2017 haroldthesquare
+        </footer>
+        <script src="{% static 'main.js' %}"></script>
     </body>
 </html>
