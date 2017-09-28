@@ -11,16 +11,16 @@ models.py -- data layer
 admin.py -- administrative interface
 views.py -- control layer
 tests.py -- tests
-migrations/ -- holds migration files, which populates the db (?)
+migrations/ -- holds migration files, which change the db structure over time as data is added 
 
 ## SETUP
 
-virtualenv my_env
+````virtualenv my_env
 
-my_env\Scripts\activate
+my_env\Scripts\activate````
 
 now install Django into your venv with pip
-pip install Django==1.8.6
+````pip install Django==1.8.6````
 
 verify:
 python
@@ -29,7 +29,7 @@ python
 
 
 ## STARTER PROJECT FILES:
-django-admin startproject mysite
+````django-admin startproject mysite````
 
 inside mysite, 
 * manage.py has a bunch of commands you can run. execute the file to see a list. for example runserver
@@ -66,3 +66,34 @@ field attributes get passed in as args:
 * choices limits the values to an array
 
 see django docs for more info https://docs.djangoproject.com/en/1.11/topics/db/models/
+
+https://docs.djangoproject.com/en/1.11/topics/db/models/#field-types
+
+just writing a model doesn't create a db table, though. You need an initial migration for that!
+
+## Migrations
+
+Migrations are needed any time models are added, fields are added or removed or the attributes are changed.
+
+````python manage.py makemigrations````
+generates migration files, based on differences between the models files and the current db
+
+````python manage.py migrate````
+runs all migrations that haven't been run yet (called unapplied migrations)
+use --list option to show them
+
+use DB Browser for SQLite to inspect your db. table is named [appname]_[modelname]
+
+## register models
+
+updated admin.py to register the new model with the app. 
+
+then create superuser using manage.py
+
+````python manage.py createsuperuser````
+
+for local use only, non-secure pw is jesse/password
+
+you can use this to log in to the admin interface of your app, which is at localhost:8000/admin
+
+inside your model, you can add an item, the UI has the fields you set up! neat!
