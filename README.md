@@ -15,7 +15,7 @@ migrations/ -- holds migration files, which change the db structure over time as
 
 ## SETUP
 
-````virtualenv my_env
+````virtualenv my_env````
 
 my_env\Scripts\activate````
 
@@ -96,4 +96,14 @@ for local use only, non-secure pw is jesse/password
 
 you can use this to log in to the admin interface of your app, which is at localhost:8000/admin
 
+## ADMIN INTERFACE
+
 inside your model, you can add an item, the UI has the fields you set up! neat!
+
+customize the display of items in the admin interface by adding a class to admin.py that inherits from admin.ModelAdmin
+
+## WORKING WITH DATA
+
+````python manage.py shell```
+
+opens up a python interface
